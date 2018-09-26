@@ -1,0 +1,68 @@
+[debug] [2018-09-26T16:39:19.654Z] ----------------------------------------------------------------------
+[debug] [2018-09-26T16:39:19.657Z] Command:       /Users/vishnuprasad/.nvm/versions/node/v10.7.0/bin/node /Users/vishnuprasad/.nvm/versions/node/v10.7.0/bin/firebase deploy
+[debug] [2018-09-26T16:39:19.657Z] CLI Version:   4.2.1
+[debug] [2018-09-26T16:39:19.657Z] Platform:      darwin
+[debug] [2018-09-26T16:39:19.657Z] Node Version:  v10.7.0
+[debug] [2018-09-26T16:39:19.658Z] Time:          Wed Sep 26 2018 22:09:19 GMT+0530 (India Standard Time)
+[debug] [2018-09-26T16:39:19.658Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-09-26T16:39:19.736Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-09-26T16:39:19.736Z] > authorizing via signed-in user
+[debug] [2018-09-26T16:39:19.739Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/fir-sample-5f5cc  
+ 
+[debug] [2018-09-26T16:39:21.128Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'fir-sample-5f5cc'...
+[info] 
+[info] i  deploying database, functions, hosting
+[info] i  database: checking rules syntax...
+[debug] [2018-09-26T16:39:27.874Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-09-26T16:39:27.874Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+
+[debug] [2018-09-26T16:39:28.116Z] <<< HTTP RESPONSE 200
+[debug] [2018-09-26T16:39:28.206Z] >>> HTTP REQUEST PUT https://fir-sample-5f5cc.firebaseio.com/.settings/rules.json?dryRun=true  
+ {
+  "rules": {
+    "users": {
+      "$uid": {
+        ".read": "auth.uid === $uid",
+        ".write": "auth.uid === $uid"
+      }
+    }
+  }
+}
+
+[debug] [2018-09-26T16:39:30.635Z] <<< HTTP RESPONSE 200
+[info] ✔  database: rules syntax for database fir-sample-5f5cc is valid
+[debug] [2018-09-26T16:39:30.638Z] > [functions] package.json contents: {
+  "name": "email-confirmation-functions",
+  "description": "Send Email confirmation upon sign up to a Mailing list Firebase Functions sample",
+  "dependencies": {
+    "nodemailer": "^2.4.1",
+    "firebase-admin": "~6.0.0",
+    "firebase-functions": "^2.0.5"
+  },
+  "devDependencies": {
+    "eslint": "^4.13.1",
+    "eslint-plugin-promise": "^3.6.0"
+  },
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint --max-warnings=0 .",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-09-26T16:39:30.639Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/fir-sample-5f5cc?view=CONSUMER_VIEW  
+ 
+[debug] [2018-09-26T16:39:30.640Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/fir-sample-5f5cc?view=CONSUMER_VIEW  
+ 
+[debug] [2018-09-26T16:39:33.110Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
